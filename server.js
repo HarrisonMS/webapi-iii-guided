@@ -13,9 +13,15 @@ const server = express();
 
 function logger(req, res, next) {
   console.log(`${req.method} to ${req.originalUrl}`)
-  next()
+  next()// allows the req to continue to the next middleware or route handler
 }
 
+// write a gatekeeper middleware that reads a password from the headers and if the password is "mellon", let it continue
+// if not send back a 401 status code and a message
+
+function gatekeeper(req, res, next) {
+  
+}
 
 server.use(express.json());// built in middlewasre
 server.use(logger)
